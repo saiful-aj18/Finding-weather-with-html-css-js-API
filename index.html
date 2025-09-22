@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Weather App</title>
+
+  <!-- Bootstrap CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <!-- Your custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h2 class="card-title mb-3 text-center">Weather Checker</h2>
+            <p class="card-text mb-4 text-center">To avoid discomfort, check the current weather before going out.</p>
+
+            <div class="input-group mb-3">
+              <input id="cityInput" type="text" class="form-control" placeholder="Enter city or postcode (e.g. London)" aria-label="City">
+              <button id="searchBtn" class="btn btn-primary">Search</button>
+            </div>
+
+            <div id="status" class="mb-3 text-center"></div>
+
+            <div id="weatherCard" class="d-none">
+              <div class="d-flex align-items-center mb-3">
+                <img id="conditionIcon" src="" alt="icon" width="64" height="64" class="me-3">
+                <div>
+                  <h4 id="locationName" class="mb-0"></h4>
+                  <small id="localTime" class="text-muted"></small>
+                </div>
+              </div>
+
+              <h1 id="temp" class="display-6 fw-bold"></h1>
+              <p id="conditionText" class="lead"></p>
+
+              <div class="row">
+                <div class="col-6">
+                  <ul class="list-unstyled">
+                    <li><strong>Feels like:</strong> <span id="feelslike"></span></li>
+                    <li><strong>Humidity:</strong> <span id="humidity"></span></li>
+                    <li><strong>Wind:</strong> <span id="wind"></span></li>
+                  </ul>
+                </div>
+                <div class="col-6">
+                  <ul class="list-unstyled">
+                    <li><strong>Pressure (mb):</strong> <span id="pressure"></span></li>
+                    <li><strong>UV:</strong> <span id="uv"></span></li>
+                    <li><strong>Visibility (km):</strong> <span id="vis_km"></span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div id="aqiBlock" class="mt-3 d-none">
+                <h6>Air Quality</h6>
+                <ul class="list-unstyled small">
+                  <li>PM2.5: <span id="pm2_5"></span></li>
+                  <li>PM10: <span id="pm10"></span></li>
+                  <li>US EPA Index: <span id="us-epa-index"></span></li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div id="errorBox" class="alert alert-danger d-none mt-3" role="alert"></div>
+
+            <small class="text-muted d-block mt-3 text-center">
+              Powered by WeatherAPI. Results are current weather.
+            </small>
+          </div>
+        </div>
+
+        <div class="text-center mt-3">
+          <button id="exampleBtn" class="btn btn-outline-secondary btn-sm">Example: London</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (bundle includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Your custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
