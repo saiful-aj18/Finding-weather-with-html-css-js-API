@@ -1,6 +1,5 @@
-// script.js
-// Use the API string you provided. We put the key into API_KEY and construct the URL dynamically.
-const API_KEY = "4126a34e83794032b7a164912251509"; // your provided key
+// By API string 
+const API_KEY = "4126a34e83794032b7a164912251509"; 
 const BASE_URL = "http://api.weatherapi.com/v1/current.json";
 
 const cityInput = document.getElementById("cityInput");
@@ -22,7 +21,7 @@ const setStatus = (html, isError = false) => {
 };
 
 async function fetchWeather(q) {
-  // show loading
+  
   setStatus('Loading... <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
   weatherCard.classList.add("d-none");
   try {
@@ -36,7 +35,7 @@ async function fetchWeather(q) {
 
     if (data && data.current && data.location) {
       renderWeather(data);
-      setStatus(""); // clear status
+      setStatus("");
     } else {
       throw new Error("Unexpected API response structure.");
     }
@@ -48,7 +47,7 @@ async function fetchWeather(q) {
 
 function renderWeather(data) {
   weatherCard.classList.remove("d-none");
-  // basic fields
+  
   document.getElementById("locationName").innerText = `${data.location.name}, ${data.location.region || data.location.country}`;
   document.getElementById("localTime").innerText = `Local time: ${data.location.localtime}`;
   document.getElementById("temp").innerText = `${data.current.temp_c} °C (${data.current.temp_f} °F)`;
@@ -61,7 +60,6 @@ function renderWeather(data) {
   document.getElementById("uv").innerText = data.current.uv;
   document.getElementById("vis_km").innerText = data.current.vis_km;
 
-  // air quality (may be missing)
   if (data.current.air_quality) {
     document.getElementById("aqiBlock").classList.remove("d-none");
     document.getElementById("pm2_5").innerText = (data.current.air_quality.pm2_5 ?? "N/A");
@@ -72,7 +70,6 @@ function renderWeather(data) {
   }
 }
 
-// wire up events
 searchBtn.addEventListener("click", () => {
   const q = cityInput.value.trim();
   if (!q) {
@@ -87,12 +84,12 @@ exampleBtn.addEventListener("click", () => {
   fetchWeather("London");
 });
 
-// support Enter key in input
+
 cityInput.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     searchBtn.click();
   }
 });
 
-// optional: fetch default on load (commented out)
-// fetchWeather("London");
+
+
