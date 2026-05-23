@@ -52,7 +52,7 @@ function renderWeather(data) {
   document.getElementById("localTime").innerText = `Local time: ${data.location.localtime}`;
   document.getElementById("temp").innerText = `${data.current.temp_c} °C (${data.current.temp_f} °F)`;
   document.getElementById("conditionText").innerText = data.current.condition.text;
-  document.getElementById("conditionIcon").src = "https:" + data.current.condition.icon; // weatherapi icon is //cdn...
+  document.getElementById("conditionIcon").src = "https:" + data.current.condition.icon; 
   document.getElementById("feelslike").innerText = `${data.current.feelslike_c} °C`;
   document.getElementById("humidity").innerText = `${data.current.humidity}%`;
   document.getElementById("wind").innerText = `${data.current.wind_kph} kph ${data.current.wind_dir}`;
